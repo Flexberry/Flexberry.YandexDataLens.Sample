@@ -15,7 +15,7 @@ services:
       POSTGRES_USER: us
       POSTGRES_PASSWORD: us
     volumes:
-      - ./metadata:/var/lib/postgresql/data
+      - PgUsDB:/var/lib/postgresql/data
 
   us:
     image: datalens/us
@@ -29,13 +29,11 @@ services:
       MASTER_TOKEN: "fake-us-master-token"
       POSTGRES_DSN_LIST: postgres://us:us@pg-us:5432/us-db-ci_purgeable
       SKIP_INSTALL_DB_EXTENSIONS: 0
-      USE_DEMO_DATA: 1
+      USE_DEMO_DATA: 0
       HC: 0
       NODE_EXTRA_CA_CERTS: /certs/root.crt
     extra_hosts:
       - "host.docker.internal:host-gateway"
-    volumes:
-      - ./certs:/certs
 
   control-api:
     image: datalens/control-api
@@ -53,8 +51,6 @@ services:
       CONFIG_PATH: "/etc/backend-configs/api.yaml"
     depends_on:
       - us
-    volumes:
-      - ./backend-configs:/etc/backend-configs
 
   data-api:
     image: datalens/data-api
@@ -76,8 +72,6 @@ services:
     depends_on:
       - us
       - pg-compeng
-    volumes:
-      - ./backend-configs:/etc/backend-configs
 
   datalens:
     image: datalens/ui
@@ -97,3 +91,6 @@ services:
       BI_DATA_ENDPOINT: "http://data-api:8080"
       NODE_EXTRA_CA_CERTS: "/usr/local/share/ca-certificates/cert.pem"
       HC: 0
+
+volumes:
+  PgUsDB:
