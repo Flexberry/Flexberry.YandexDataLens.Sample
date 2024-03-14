@@ -1,0 +1,11 @@
+version: '3'
+services:
+  postgres-dataset-airlines:
+    image: data-sample/airlines
+    volumes:
+      - pgdata-airlines:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+      
+volumes:
+  pgdata-airlines:

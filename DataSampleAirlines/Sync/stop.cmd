@@ -1,0 +1,1 @@
+docker-compose -p data-generator-synth down
