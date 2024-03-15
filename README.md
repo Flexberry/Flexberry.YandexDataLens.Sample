@@ -39,6 +39,10 @@ http://localhost:8082/ - API для доступа к данным DataLens
 \DataSampleAirlines\Database\src\start.cmd
 ```
 
+USER: postgres
+
+PASSWORD: Passw0rd
+
 2. Генерация тестовых данных. Выполняется с использованием Synth (https://www.getsynth.com/).
 
 Генерация выполняется автоматически в специальном Docker контейнере, после чего из контейнера также автоматически выполняется соединение с БД и импорт данных.
