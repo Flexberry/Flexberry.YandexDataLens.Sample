@@ -1,0 +1,45 @@
+{
+  "type": "array",
+  "length": {
+    "type": "number",
+    "range": {
+      "low": 500,
+      "high": 501,
+      "step": 1
+    },
+    "subtype": "u64"
+  },
+  "content": {
+    "type": "object",
+	"primarykey": {
+      "type": "unique",
+      "algorithm": {
+        "Hash": {
+          "retries": null
+        }
+      },
+      "content": {
+        "type": "string",
+        "uuid": null
+      }
+    },
+    "age": {
+      "type": "number",
+      "range": {
+		"low": 30,
+		"high": 50
+	  },
+      "subtype": "i32"
+    },
+    "name": {
+      "type": "string",
+      "faker": {
+		  "generator": "name"
+	  }
+    },
+    "aircraft": {
+      "type": "same_as",
+      "ref": "aircraft.content.primarykey"
+    }
+  }
+}

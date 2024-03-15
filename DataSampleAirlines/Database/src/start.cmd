@@ -1,0 +1,1 @@
+docker-compose -p postgres-dataset-airlines up -d

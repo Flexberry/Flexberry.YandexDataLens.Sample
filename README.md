@@ -26,3 +26,50 @@ http://localhost:8082/ - API для доступа к данным DataLens
 ```
 \src\Docker> .\stop.cmd
 ```
+
+## Запуск БД с генерацией тестовых данных.
+
+1. Для примера подготовлена база Postgres с информацией об авиаперелетах - DataSampleAirlines. Запускается в докере
+
+```
+\DataSampleAirlines\Database\src\create-image.cmd
+```
+
+```
+\DataSampleAirlines\Database\src\start.cmd
+```
+
+USER: postgres
+
+PASSWORD: Passw0rd
+
+2. Генерация тестовых данных. Выполняется с использованием Synth (https://www.getsynth.com/).
+
+Генерация выполняется автоматически в специальном Docker контейнере, после чего из контейнера также автоматически выполняется соединение с БД и импорт данных.
+Для генерации заготовлена схема данных.
+
+```
+\DataSampleAirlines\Sync\Scheme
+```
+
+Также необходим файл в котором задан перечень и порядок импорта по таблицам.
+
+```
+\DataSampleAirlines\Sync\Scheme\importList.txt
+```
+
+Чтобы выполнить импорт нужно собрать образ
+
+```
+\DataSampleAirlines\Sync\create-image.cmd
+```
+
+и запустить
+
+```
+\DataSampleAirlines\Sync\start.cmd
+```
+
+Генерация и импорт происходят при старте контейнера, потом его можно удалить.
+
+Для генерации требуется много ОП. Если в логах контейнера sync появляется сообщение, что процее Killed значит нужно уменьшить количество записей в json-файлах схемы YandexDataLens\DataSampleAirlines\Sync\Scheme\demo
