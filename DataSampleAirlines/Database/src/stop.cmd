@@ -1,1 +1,1 @@
-docker-compose -p data-sample-airlines down
+docker-compose -p postgres-dataset-airlines down
