@@ -1,0 +1,7 @@
+aircraft
+airport
+flight
+passenger
+pilot
+seat
+ticket

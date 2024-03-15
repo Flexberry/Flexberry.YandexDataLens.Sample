@@ -1,0 +1,56 @@
+{
+  "type": "array",
+  "length": {
+    "type": "number",
+    "range": {
+      "low": 500000,
+      "high": 500001,
+      "step": 1
+    },
+    "subtype": "u64"
+  },
+  "content": {
+    "type": "object",
+	"primarykey": {
+      "type": "unique",
+      "algorithm": {
+        "Hash": {
+          "retries": null
+        }
+      },
+      "content": {
+        "type": "string",
+        "uuid": null
+      }
+    },
+    "bookingdate": {
+      "type": "date_time",
+      "format": "%Y-%m-%dT%H:%M:%S",
+      "subtype": "naive_date_time"
+    },
+    "bookingstatus": {
+      "type": "string",
+      "categorical": {
+		"Paid": 1,
+		"NotPaid": 1
+	  }
+    },
+	"ticketcost": {
+      "type": "number",
+      "range": {},
+      "subtype": "f64"
+    },
+	"passenger": {
+      "type": "same_as",
+      "ref": "passenger.content.primarykey"
+    },
+    "seat": {
+      "type": "same_as",
+      "ref": "seat.content.primarykey"
+    },
+    "flight": {
+      "type": "same_as",
+      "ref": "flight.content.primarykey"
+    }
+  }
+}

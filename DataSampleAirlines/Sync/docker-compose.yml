@@ -1,0 +1,10 @@
+version: '3'
+services:
+  data-generator-synth:
+    image: data-generator/synth
+    environment:
+      CONNECTION_STRING: host.docker.internal
+      DB_NAME: demo
+      USER: postgres
+      PGPASSWORD: Passw0rd
+      
