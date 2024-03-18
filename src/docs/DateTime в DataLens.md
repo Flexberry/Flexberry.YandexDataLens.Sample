@@ -39,11 +39,11 @@ CONCAT(
 
 1. Линейная диаграмма. Количество автомобилей по месяцам.
 
-![alt text](image/datetime_sample1.png)
+![Линейная диаграмма](image/datetime_sample1.png)
 
 2. Сводная таблица. Количество автомоблей по брендам по датам.
 
-![alt text](image/datetime_sample2.png)
+![Сводная таблица](image/datetime_sample2.png)
 
 ## Ссылки
 
