@@ -1,0 +1,12 @@
+﻿version: '3'
+
+services:
+  app-postgre-db:
+    image: carsandbrands/postgre-sql
+    volumes:
+      - PostgreDb:/var/lib/pgsql/data/
+    ports:
+      - 6432:5432
+    
+volumes:
+  PostgreDb:
