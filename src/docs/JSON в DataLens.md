@@ -8,7 +8,9 @@
 
 ## Пример
 Пусть JSON-данные следующего вида: 
-`[{"$id":"1","field":"Name","mainChange":null,"newValue":"Brand 783759524","oldValue":"-NULL-"}]`
+```
+[{"$id":"1","field":"Name","mainChange":null,"newValue":"Brand 783759524","oldValue":"-NULL-"}]
+```
 
 Тогда для получения значений `newValue` в датасете можно создать вычисляемое поле со следующей формулой:
 
