@@ -49,7 +49,7 @@
 
 2. Блоковый комментарий.
 ```sql
-/* Это блоковыйкомментарий */
+/* Это блоковый комментарий */
 ```
 
 ## Логические операции
@@ -117,7 +117,7 @@ FLOAT([StringWithNumbers])
 
 DATETIME(STR([Order Date]) + "-" + STR([Order Time]))
 
-GEOPOINT([Latitude],[Longitude])
+GEOPOINT([Latitude], [Longitude])
 ```
 
 [Полное описание функций преобразования типов](https://datalens.tech/docs/ru/function-ref/type-conversion-functions.html)
